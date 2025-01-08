@@ -83,7 +83,14 @@ public class AvaliacaoDAO {
             stmt.setInt(5, avaliacao.getId());
             stmt.executeUpdate();
 
-            System.out.println("Avaliação atualizada com sucesso!");
+            int rowsUpdated = stmt.executeUpdate();
+
+            // Mensagem de sucesso
+            if (rowsUpdated > 0) {
+                System.out.println("Avaliação atualizada com sucesso!");
+            } else {
+                System.out.println("Nenhum registro encontrado para atualizar.");
+            }
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -100,7 +107,14 @@ public class AvaliacaoDAO {
             stmt.setInt(1, id);
             stmt.executeUpdate();
 
-            System.out.println("Avaliação deletada com sucesso!");
+            int rowsUpdated = stmt.executeUpdate();
+
+            // Mensagem de sucesso
+            if (rowsUpdated > 0) {
+                System.out.println("Avaliação apagada com sucesso!");
+            } else {
+                System.out.println("Nenhum registro encontrado para apagar.");
+            }
         } catch (SQLException e) {
             e.printStackTrace();
         }
