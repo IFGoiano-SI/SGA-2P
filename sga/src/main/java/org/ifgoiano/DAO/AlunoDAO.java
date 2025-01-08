@@ -104,7 +104,14 @@ public class AlunoDAO {
             stmt.setInt(5, aluno.getId());
             stmt.executeUpdate();
 
-            System.out.println("Aluno atualizado com sucesso!");
+            int rowsUpdated = stmt.executeUpdate();
+
+            // Mensagem de sucesso
+            if (rowsUpdated > 0) {
+                System.out.println("Aluno atualizado com sucesso!");
+            } else {
+                System.out.println("Nenhum registro encontrado para atualizar.");
+            }
 
         } catch (SQLException e) {
             e.printStackTrace();
@@ -122,8 +129,14 @@ public class AlunoDAO {
             stmt.setInt(1, id);
             stmt.executeUpdate();
 
-            System.out.println("Aluno excluído com sucesso!");
+            int rowsUpdated = stmt.executeUpdate();
 
+            // Mensagem de sucesso
+            if (rowsUpdated > 0) {
+                System.out.println("Aluno deletado com sucesso!");
+            } else {
+                System.out.println("Nenhum registro encontrado para deletar.");
+            }
         } catch (SQLException e) {
             e.printStackTrace();
         }
